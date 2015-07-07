@@ -1,0 +1,137 @@
+$breakpoint-tablet: 768px
+
+
+
+@mixin vertical-align()
+	top: 50%
+	transform: translateY(-50%)
+	position: absolute
+
+ul
+	list-style: none
+	margin: 0
+	padding: 0
+
+img
+	width: 100%
+	display: block
+
+a
+	outline: none
+	
+
+
+
+
+
+
+body, html
+	width: 100%
+	height: 100%
+	margin: 0
+	-webkit-transform: translatez(0)
+
+#container
+	background: lightgray
+	width: calc(100% - 120px)
+	height: calc(100% - 240px)
+	right: 0
+
+	overflow: hidden
+	@include vertical-align
+
+	li
+		background-size: cover
+		background-position: center center
+
+#prev, #next
+	width: 90px
+	height: 90px
+	background: blue
+	cursor: pointer
+	@include vertical-align
+
+	a
+		display: block
+		width: 100%
+		height: 100%
+
+
+#next
+	right: 0
+
+#info-container
+	transition: all 1s
+	&.close
+		opacity: 0.4
+		.information-close
+			display: none
+	&.open
+		opacity: 1
+		.information-open
+			display: none
+
+.information-slide, .information-global
+	background: red
+	position: absolute
+	left: 0
+	top: 0
+	transition: all 1s
+	opacity: 1
+	@include vertical-align
+	top: 70%
+
+	&.hide
+		opacity: 0
+
+.information-slide
+	display: none
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#svg 
+	background: red
+	width: 100%
+	height: 100%
+	display: block
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: $breakpoint-tablet)

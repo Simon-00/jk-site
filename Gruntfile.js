@@ -46,6 +46,8 @@ module.exports = function (grunt) {
             js: {
                 src: [
                     'bower_components/jquery/dist/jquery.js',
+                    'bower_components/bxslider-4/dist/jquery.bxslider.js',
+                    'bower_components/Snap.svg/dist/snap.svg.js',
                     '<%= pkg.buildConfig.devfold %>assets/js/<%= pkg.name %>.js'
                 ],
                 dest: '<%= pkg.buildConfig.publicfold %>js/<%= pkg.name %>.js'
@@ -147,7 +149,7 @@ module.exports = function (grunt) {
         connect: {
             all: {
                 options:{
-                    port: 6666,
+                    port: 8989,
                     hostname: '*',
                     base: '<%= pkg.buildConfig.publicfold %>',
                     keepalive: true
@@ -156,7 +158,7 @@ module.exports = function (grunt) {
         },
         open : {
             dev : {
-                path: 'http://localhost:6666',
+                path: 'http://localhost:8989',
                 app: 'Firefox'
             }
         },
@@ -167,7 +169,7 @@ module.exports = function (grunt) {
             },
             js: {
                 files: ['<%= jshint.files %>', '<%= concat.js.src %>'],
-                tasks: ['jshint', 'concat:js', 'notify:js']
+                tasks: ['concat:js', 'notify:js']
             },
             sass: {
                 files: ['<%= pkg.buildConfig.devfold %>assets/sass/*.sass'],
@@ -217,8 +219,8 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('server', ['connect']);
-    grunt.registerTask('dev', ['open', 'jshint', 'sass', 'jade', 'concat', 'autoprefixer:core', 'copy', 'watch']);
-    grunt.registerTask('build', ['clean', 'jshint', 'copy', 'imagemin', 'concat:js', 'uglify', 'sass', 'jade', 'concat:css', 'autoprefixer:core', 'cssmin', 'notify:build']);
+    grunt.registerTask('dev', ['open', 'sass', 'jade', 'concat', 'autoprefixer:core', 'copy', 'watch']);
+    grunt.registerTask('build', ['clean', 'copy', 'imagemin', 'concat:js', 'uglify', 'sass', 'jade', 'concat:css', 'autoprefixer:core', 'cssmin', 'notify:build']);
     
     grunt.task.run('notify_hooks');
 

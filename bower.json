@@ -11,6 +11,8 @@
         "bower_components"
     ],
     "dependencies": {
-        "jquery": "*"
+        "jquery": "*",
+        "bxslider-4": "*",
+        "Snap.svg": "*"
     }
 }
